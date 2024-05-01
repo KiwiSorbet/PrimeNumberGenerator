@@ -1,0 +1,94 @@
+UseTab: Never
+IndentWidth: 4
+TabWidth: 4
+ColumnLimit: 80
+
+# indentation
+IndentCaseBlocks: false
+IndentCaseLabels: true
+IndentPPDirectives: None
+IndentWrappedFunctionNames: true
+
+# spacing
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions: 
+    AfterControlStatements: true
+    AfterFunctionDeclarationName: false
+    AfterFunctionDefinitionName: false
+    BeforeNonEmptyParentheses: false
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpaceAroundPointerQualifiers: Default
+SpacesInLineCommentPrefix: 
+    Minimum: 1
+    Maximum: 1
+SpacesInParens: Never
+SpacesInSquareBrackets: false
+
+# alignment
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: Right
+AlignEscapedNewlines: Left
+AlignOperands: AlignAfterOperator
+AlignConsecutiveMacros: false
+DerivePointerAlignment: false
+PointerAlignment: Left
+ReferenceAlignment: Left
+QualifierAlignment: Custom
+QualifierOrder: ['inline', 'const', 'constexpr', 'static', 'volatile', 'restrict', 'type']
+AlignTrailingComments: false
+
+# breaking
+BreakBeforeBraces: Custom
+BreakBeforeBinaryOperators: NonAssignment
+ReflowComments: true
+
+# brace wrapping
+BraceWrapping:
+    AfterCaseLabel: false
+    AfterClass: false
+    AfterControlStatement: Never
+    AfterEnum: false
+    AfterFunction: false
+    AfterNamespace: false
+    AfterStruct: false
+    AfterUnion: false
+    AfterExternBlock: false
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeWhile: true
+
+# what's allowed
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# insertions
+InsertBraces: false
+InsertNewlineAtEOF: false
+SeparateDefinitionBlocks: Always
+LineEnding: LF
+
+# deletions
+KeepEmptyLinesAtEOF: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+RemoveBracesLLVM: true
+RemoveParentheses: ReturnStatement
+RemoveSemicolon: true
+
+# sorting
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve

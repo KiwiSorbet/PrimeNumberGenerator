@@ -112,11 +112,11 @@ size_t bmap_find_next(struct bmap* bmap, size_t index, bool value,
             cursor++;
     // walk left
     else if (dir == LEFT)
-        while (cursor >= 0 && bmap_get(bmap, cursor) != value)
+        while (bmap_get(bmap, cursor) != value)
             cursor--;
 
     // didn't find any occurence
-    if (cursor >= bmap->length || cursor < 0)
+    if (cursor >= bmap->length)
         return bmap->length;
 
     return cursor;

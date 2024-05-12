@@ -1,20 +1,33 @@
+MAKEFLAGS = --no-print-directory
+
 CC = clang
-DEBUGFLAGS = -O0 -g -Wall -lm
-BUILDFLAGS = -O3 -lm
-BUILDFILES = main.c bmap.c
+DB = lldb
+CFLAGS = -Wall -Wextra -Wpedantic
+LDFLAGS = -lm
+
+FILES = $(wildcard *.c)
+OBJECTS = $(FILES:.c=.o)
+TARGET = main
+
+debug:
+	@make clean --no-print-directory
+	$(CC) $(CFLAGS) $(LDLAGS) -O0 -g $(FILES) -o $(TARGET)
 
 release:
 	@make clean --no-print-directory
-	$(CC) $(BUILDFLAGS) $(BUILDFILES) -o main
+	$(CC) $(CFLAGS) $(LDLAGS) -O3 $(FILES) -o $(TARGET)
 	
-debug:
-	@make clean --no-print-directory
-	$(CC) $(DEBUGFLAGS) $(BUILDFILES) -o main
-
 clean:
-	rm -f main *.exe *.o
+	@rm -rf $(TARGET) $(OBJECTS)
 
 run:
-	@make debug --no-print-directory
-	./main
-	@make clean --no-print-directory
+	@make debug
+	@echo "-------------------------"
+	@./$(TARGET)
+	@echo "-------------------------"
+	@make clean
+
+rundebug:
+	@make debug
+	$(DB) ./$(TARGET)
+	@make clean

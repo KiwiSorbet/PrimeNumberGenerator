@@ -6,8 +6,8 @@
 
 #include "bmap.h"
 
-#define BMAP_INCREMENT 10000000
-#define LIST_SIZE 1000000
+#define BMAP_INCREMENT 10000000 // bitmap is incrementally extended
+#define LIST_SIZE 1000000 // how many prime numbers to find
 
 typedef uint64_t prime;
 
@@ -42,9 +42,8 @@ int main() {
             bmap_extend(prime_map, BMAP_INCREMENT, true);
 
             // update new bitmap entries with previous primes
-            for (size_t i = 0; i < list_index; i++) {
+            for (size_t i = 0; i < list_index; i++)
                 progagate_prime(prime_list[i], old_length, prime_map);
-            }
 
             // recalculate bitmap index of the next new prime
             bmap_index = bmap_find_next(prime_map, bmap_index + 1, true, RIGHT);

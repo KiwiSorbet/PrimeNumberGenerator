@@ -2,7 +2,7 @@ MAKEFLAGS = --no-print-directory
 
 CC = clang
 DB = lldb
-CFLAGS = -Wall -Wextra -Wpedantic
+CFLAGS = -Wall -Wextra
 LDFLAGS = -lm
 
 FILES = $(wildcard *.c)

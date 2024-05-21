@@ -11,7 +11,6 @@
 struct bmap* bmap_create(size_t length, bool init) {
     // allocate memory for bitmap struct
     struct bmap* bmap = malloc(sizeof(struct bmap));
-    // allocation failed
     if (bmap == NULL)
         return 0;
 
@@ -21,7 +20,6 @@ struct bmap* bmap_create(size_t length, bool init) {
 
     // allocate memory for bitmap
     bmap->map = malloc(byte_length);
-    // allocation failed
     if (bmap->map == NULL)
         return 0;
 

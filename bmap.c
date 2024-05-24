@@ -20,8 +20,10 @@ struct bmap* bmap_create(size_t length, bool init) {
 
     // allocate memory for bitmap
     bmap->map = malloc(byte_length);
-    if (bmap->map == NULL)
+    if (bmap->map == NULL) {
+        free(bmap);
         return NULL;
+    }
 
     // set all bits to initial value
     memset(bmap->map, (init == true) ? 0b11111111 : 0b00000000, byte_length);

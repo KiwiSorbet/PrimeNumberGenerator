@@ -12,7 +12,7 @@ struct bmap* bmap_create(size_t length, bool init) {
     // allocate memory for bitmap struct
     struct bmap* bmap = malloc(sizeof(struct bmap));
     if (bmap == NULL)
-        return 0;
+        return bmap;
 
     // get the length in bytes to allocate (rounded up to the nearest byte)
     size_t byte_length = ((length + 7) / 8);
@@ -21,7 +21,7 @@ struct bmap* bmap_create(size_t length, bool init) {
     // allocate memory for bitmap
     bmap->map = malloc(byte_length);
     if (bmap->map == NULL)
-        return 0;
+        return bmap->map;
 
     // set all bits to initial value
     memset(bmap->map, (init == true) ? 0b11111111 : 0b00000000, byte_length);

@@ -17,7 +17,7 @@ int main() {
     // create bitmap
     struct bmap* prime_map = bmap_create(BMAP_INCREMENT, true);
     if (prime_map == NULL)
-        return 0;
+        return -1;
 
     // initialize bitmap
     bmap_set(prime_map, 0, false); // 0 is not prime
@@ -27,7 +27,7 @@ int main() {
     // create the list of prime numbers
     prime* prime_list = malloc(LIST_SIZE * sizeof(prime));
     if (prime_list == NULL)
-        return 0;
+        return -1;
     size_t list_index = 0;
 
     // find prime numbers until list is filled
@@ -39,7 +39,9 @@ int main() {
         if (bmap_index == prime_map->length) {
             // extend bitmap
             size_t old_length = prime_map->length; // save old length of bitmap
-            bmap_extend(prime_map, BMAP_INCREMENT, true);
+            enum err_code extension = bmap_extend(prime_map, BMAP_INCREMENT, true);
+            if (extension == FAILURE)
+                return -1;
 
             // update new bitmap entries with previous primes
             for (size_t i = 0; i < list_index; i++)
@@ -60,6 +62,8 @@ int main() {
     printf("%zuth prime number: %zu\n", list_index, prime_list[LIST_SIZE - 1]);
     free(prime_list);
     bmap_free(prime_map);
+
+    return 0;
 }
 
 // Marks the multiples of a prime number through the assoiated bitmap as

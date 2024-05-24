@@ -10,6 +10,11 @@ struct bmap {
     uint8_t* map; // array storing the bit field
 };
 
+enum err_code {
+    SUCCESS,
+    FAILURE
+};
+
 enum direction {
     LEFT,
     RIGHT
@@ -17,7 +22,7 @@ enum direction {
 
 struct bmap* bmap_create(size_t length, bool init);
 void bmap_free(struct bmap* bmap);
-void bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
+enum err_code bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
 void bmap_print(struct bmap* bmap);
 bool bmap_get(struct bmap* bmap, size_t index);
 void bmap_set(struct bmap* bmap, size_t index, bool value);

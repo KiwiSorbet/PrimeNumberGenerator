@@ -74,7 +74,7 @@ void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {
 
     while (multiple < bmap->length) {
         bmap_set(bmap, multiple, false);
-        multiple = prime_num * ++multiplier;
+        multiple += prime_num;
     }
 
     return;

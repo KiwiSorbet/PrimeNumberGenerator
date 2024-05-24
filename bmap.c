@@ -148,8 +148,7 @@ void bmap_set(struct bmap* bmap, size_t index, bool value) {
 
 // Sets a number cnt of specific bits from a starting index in the associated
 // bitmap to a specific value.
-void bmap_set_multiple(struct bmap* bmap, size_t index, size_t cnt,
-                       bool value) {
+void bmap_set_mul(struct bmap* bmap, size_t index, size_t cnt, bool value) {
     for (size_t i = index; i < index + cnt; i++)
         bmap_set(bmap, i, value);
     return;

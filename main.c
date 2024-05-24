@@ -35,7 +35,7 @@ int main() {
         // find the next prime number
         bmap_index = bmap_find_next(prime_map, bmap_index, true, RIGHT);
 
-        // end of bitmap reached, need to extend it
+        // if end of bitmap reached, need to extend it
         if (bmap_index == prime_map->length) {
             // extend bitmap
             size_t old_length = prime_map->length; // save old length of bitmap

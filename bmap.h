@@ -25,4 +25,4 @@ void bmap_set_multiple(struct bmap* bmap, size_t index, size_t cnt, bool value);
 size_t bmap_find_next(struct bmap* bmap, size_t index, bool value,
                       enum direction dir);
 
-#endif BMAP_H
+#endif

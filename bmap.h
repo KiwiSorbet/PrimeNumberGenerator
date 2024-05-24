@@ -1,3 +1,6 @@
+#ifndef BMAP_H
+#define BMAP_H
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -21,3 +24,5 @@ void bmap_set(struct bmap* bmap, size_t index, bool value);
 void bmap_set_multiple(struct bmap* bmap, size_t index, size_t cnt, bool value);
 size_t bmap_find_next(struct bmap* bmap, size_t index, bool value,
                       enum direction dir);
+
+#endif BMAP_H

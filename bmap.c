@@ -68,9 +68,8 @@ void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
     // create the new larger bitmap
     size_t new_byte_length = bmap->length / 8 + (extend_length + 7) / 8;
     uint8_t* new_map = malloc(new_byte_length);
-    if (new_map == NULL) {
+    if (new_map == NULL)
         exit(-1);
-    }
 
     // copy contents of the old bitmap into the new one
     memset(new_map + bmap->length / 8, (init) ? 0b11111111 : 0b00000000,

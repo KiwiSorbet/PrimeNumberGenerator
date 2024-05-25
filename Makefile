@@ -18,7 +18,7 @@ release:
 	$(CC) $(CFLAGS) $(LDLAGS) -O3 $(FILES) -o $(TARGET)
 	
 clean:
-	@rm -rf $(TARGET) $(OBJECTS)
+	@rm -rf $(TARGET) *.exe $(OBJECTS)
 
 run:
 	@make debug

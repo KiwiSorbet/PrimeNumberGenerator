@@ -24,6 +24,8 @@ struct bmap* bmap_create(size_t length, bool init);
 void bmap_free(struct bmap* bmap);
 enum err_code bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
 void bmap_print(struct bmap* bmap);
+void bmap_free(struct bmap* bmap);
+void bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
 bool bmap_get(struct bmap* bmap, size_t index);
 void bmap_set(struct bmap* bmap, size_t index, bool value);
 void bmap_set_mul(struct bmap* bmap, size_t index, size_t cnt, bool value);

@@ -48,7 +48,7 @@ int main() {
                 progagate_prime(prime_list[i], old_length, prime_map);
 
             // recalculate bitmap index of the next new prime
-            bmap_index = bmap_find_next(prime_map, bmap_index + 1, true, RIGHT);
+            bmap_index = bmap_find_next(prime_map, bmap_index, true, RIGHT);
         }
 
         // update bitmap and prime list

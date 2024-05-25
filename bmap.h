@@ -21,8 +21,6 @@ enum direction {
 };
 
 struct bmap* bmap_create(size_t length, bool init);
-void bmap_free(struct bmap* bmap);
-enum err_code bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
 void bmap_print(struct bmap* bmap);
 void bmap_free(struct bmap* bmap);
 void bmap_extend(struct bmap* bmap, size_t extend_length, bool init);

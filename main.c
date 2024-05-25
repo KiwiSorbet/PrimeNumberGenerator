@@ -39,9 +39,7 @@ int main() {
         if (bmap_index == prime_map->length) {
             // extend bitmap
             size_t old_length = prime_map->length; // save old length of bitmap
-            enum err_code err = bmap_extend(prime_map, BMAP_INCREMENT, true);
-            if (err == FAILURE)
-                return -1;
+            bmap_extend(prime_map, BMAP_INCREMENT, true);
 
             // update new bitmap entries with previous primes
             for (size_t i = 0; i < list_index; i++)

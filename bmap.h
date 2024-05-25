@@ -5,19 +5,14 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-struct bmap {
-    size_t length; // length of the bitmap in bits
-    uint8_t* map; // array storing the bit field
-};
-
-enum err_code {
-    SUCCESS,
-    FAILURE
-};
-
 enum direction {
     LEFT,
     RIGHT
+};
+
+struct bmap {
+    size_t length; // length of the bitmap in bits
+    uint8_t* map; // array storing the bit field
 };
 
 struct bmap* bmap_create(size_t length, bool init);

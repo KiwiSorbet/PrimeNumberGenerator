@@ -7,6 +7,9 @@
 
 #include "bmap.h"
 
+#define bmap_int uint64_t
+#define int_size sizeof(bmap_int)
+
 // Creates and initializes a bitmap of the input length in bits.
 struct bmap* bmap_create(size_t length, bool init) {
     // allocate memory for bitmap struct
@@ -66,7 +69,6 @@ void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
     size_t new_byte_length = bmap->length / 8 + (extend_length + 7) / 8;
     uint8_t* new_map = malloc(new_byte_length);
     if (new_map == NULL) {
-        perror("Failed to extend bitmap");
         exit(-1);
     }
 
@@ -80,7 +82,7 @@ void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
     bmap->map = new_map;
     bmap->length = new_byte_length * 8;
 
-    return 0;
+    return;
 }
 
 // Returns the value of a certain location in the associated bitmap.

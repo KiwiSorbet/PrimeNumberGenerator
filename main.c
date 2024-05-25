@@ -22,7 +22,7 @@ int main() {
     // initialize bitmap
     bmap_set(prime_map, 0, false); // 0 is not prime
     bmap_set(prime_map, 1, false); // 1 is not prime
-    size_t bmap_index = 2;
+    size_t bmap_index = 1;
 
     // create the list of prime numbers
     prime* prime_list = malloc(LIST_SIZE * sizeof(prime));
@@ -33,7 +33,7 @@ int main() {
     // find prime numbers until list is filled
     for (; list_index < LIST_SIZE; list_index++) {
         // find the next prime number
-        bmap_index = bmap_find_next(prime_map, bmap_index, true, RIGHT);
+        bmap_index = bmap_find_next(prime_map, ++bmap_index, true, RIGHT);
 
         // if end of bitmap reached, need to extend it
         if (bmap_index == prime_map->length) {
@@ -54,8 +54,6 @@ int main() {
         // update bitmap and prime list
         prime_list[list_index] = bmap_index;
         progagate_prime(bmap_index, bmap_index, prime_map);
-
-        bmap_index++;
     }
 
     // print last prime number in the list

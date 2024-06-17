@@ -37,7 +37,6 @@ struct bmap* bmap_create(size_t length, bool init) {
 // Prints the contents of the associated bitmap.
 void bmap_print(struct bmap* bmap) {
     size_t byte_length = (bmap->length + 7) / 8;
-    size_t cur_bit = 0;
 
     printf("------------------------\n");
 
@@ -47,7 +46,7 @@ void bmap_print(struct bmap* bmap) {
 
         // print each bit in the byte
         for (size_t j = 0; j < 8; j++)
-            printf("%d ", bmap_get(bmap, cur_bit++));
+            printf("%d ", bmap_get(bmap, i * 8 + j));
 
         printf("\n");
     }

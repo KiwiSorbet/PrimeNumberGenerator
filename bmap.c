@@ -35,7 +35,7 @@ struct bmap* bmap_create(size_t length, bool init) {
 }
 
 // Prints the contents of the associated bitmap.
-void bmap_print(struct bmap* bmap) {
+void bmap_print(const struct bmap* bmap) {
     size_t byte_length = (bmap->length + 7) / 8;
 
     printf("------------------------\n");
@@ -84,7 +84,7 @@ void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
 }
 
 // Returns the value of a certain location in the associated bitmap.
-bool bmap_get(struct bmap* bmap, size_t index) {
+bool bmap_get(const struct bmap* bmap, size_t index) {
     // index out of bounds always returns false
     if (index >= bmap->length)
         return false;
@@ -104,7 +104,7 @@ bool bmap_get(struct bmap* bmap, size_t index) {
 // index (including the starting index) by walking through the bitmap in a
 // certain direction and returns its associated index. Returns the length of the
 // bitmap if no occurence was found.
-size_t bmap_find_next(struct bmap* bmap, size_t index, bool value,
+size_t bmap_find_next(const struct bmap* bmap, size_t index, bool value,
                       enum direction dir) {
     size_t cursor = index;
 

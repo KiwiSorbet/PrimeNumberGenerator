@@ -59,7 +59,6 @@ void bmap_print(const struct bmap* bmap) {
 void bmap_free(struct bmap* bmap) {
     free(bmap->map);
     free(bmap);
-    return;
 }
 
 // Extends the length in bits of the bitmap in a bitmap struct.
@@ -79,8 +78,6 @@ void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
     free(bmap->map);
     bmap->map = new_map;
     bmap->length = new_byte_length * 8;
-
-    return;
 }
 
 // Returns the value of a certain location in the associated bitmap.
@@ -144,8 +141,6 @@ void bmap_set(struct bmap* bmap, size_t index, bool value) {
         uint8_t binary_control = ~(0b10000000 >> offset);
         bmap->map[byte_index] &= binary_control;
     }
-
-    return;
 }
 
 // Sets a number cnt of specific bits from a starting index in the associated
@@ -153,5 +148,4 @@ void bmap_set(struct bmap* bmap, size_t index, bool value) {
 void bmap_set_mul(struct bmap* bmap, size_t index, size_t cnt, bool value) {
     for (size_t i = index; i < index + cnt; i++)
         bmap_set(bmap, i, value);
-    return;
 }

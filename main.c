@@ -58,8 +58,6 @@ int main() {
     printf("%zuth prime number: %zu\n", list_index, prime_list[LIST_SIZE - 1]);
     free(prime_list);
     bmap_free(prime_map);
-
-    return 0;
 }
 
 // Marks the multiples of a prime number through the assoiated bitmap as
@@ -72,6 +70,4 @@ void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {
         bmap_set(bmap, multiple, false);
         multiple += prime_num;
     }
-
-    return;
 }

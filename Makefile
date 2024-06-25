@@ -2,8 +2,12 @@ MAKEFLAGS = --no-print-directory
 
 CC = clang
 DB = lldb
+
 CFLAGS = -Wall -Wextra
 LDFLAGS = -lm
+
+DBFLAGS = -O0 -g
+RLFLAGS = -O3 -march=native
 
 FILES = $(wildcard *.c)
 OBJECTS = $(FILES:.c=.o)
@@ -11,11 +15,11 @@ TARGET = main
 
 debug:
 	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -g $(FILES) -o $(TARGET)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(DBFLAGS) $(FILES) -o $(TARGET)
 
 release:
 	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDFLAGS) -O3 -mcpu=native $(FILES) -o $(TARGET)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(RLFLAGS) $(FILES) -o $(TARGET)
 	
 clean:
 	@rm -rf $(TARGET) *.exe $(OBJECTS)

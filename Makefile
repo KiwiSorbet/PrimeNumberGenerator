@@ -11,11 +11,11 @@ TARGET = main
 
 debug:
 	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDLAGS) -O0 -g $(FILES) -o $(TARGET)
+	$(CC) $(CFLAGS) $(LDFLAGS) -O0 -g $(FILES) -o $(TARGET)
 
 release:
 	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDLAGS) -O3 $(FILES) -o $(TARGET)
+	$(CC) $(CFLAGS) $(LDFLAGS) -O3 $(FILES) -o $(TARGET)
 	
 clean:
 	@rm -rf $(TARGET) *.exe $(OBJECTS)

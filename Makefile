@@ -15,7 +15,7 @@ debug:
 
 release:
 	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDFLAGS) -O3 $(FILES) -o $(TARGET)
+	$(CC) $(CFLAGS) $(LDFLAGS) -O3 -mcpu=native $(FILES) -o $(TARGET)
 	
 clean:
 	@rm -rf $(TARGET) *.exe $(OBJECTS)

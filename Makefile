@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra
 LDFLAGS = -lm
 
 DBFLAGS = -O0 -g
-RLFLAGS = -O3 -march=native
+RLFLAGS = -O3 -march=native -mtune=native
 
 FILES = $(wildcard *.c)
 OBJECTS = $(FILES:.c=.o)

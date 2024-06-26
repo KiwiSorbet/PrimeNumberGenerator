@@ -1,17 +1,13 @@
 #include <math.h>
 #include <stdbool.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "bmap.h"
+#include "main.h"
 
 #define BMAP_INCREMENT 10000000 // bitmap is incrementally extended
 #define LIST_SIZE 1000000 // how many prime numbers to find
-
-typedef uint64_t prime;
-
-void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap);
 
 int main() {
     // create bitmap

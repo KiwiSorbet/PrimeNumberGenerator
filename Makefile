@@ -4,10 +4,10 @@ CC = clang
 DB = lldb
 
 CFLAGS = -Wall -Wextra
-LDFLAGS = -lm
+LDFLAGS =
 
 DBFLAGS = -O0 -g
-RLFLAGS = -O3 -march=native -mtune=native
+RLFLAGS = -O3 -march=native -mtune=native -DNDEBUG
 
 FILES = $(wildcard *.c)
 OBJECTS = $(FILES:.c=.o)

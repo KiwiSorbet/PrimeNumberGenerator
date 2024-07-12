@@ -1,6 +1,5 @@
 # object files
 *.o
-*.so
 
 # static libraries
 *.lib

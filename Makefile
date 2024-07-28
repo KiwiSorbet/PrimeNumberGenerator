@@ -1,6 +1,6 @@
 MAKEFLAGS = --no-print-directory
 
-CC = clang
+CC = gcc
 DB = lldb
 
 CFLAGS = -Wall -Wextra

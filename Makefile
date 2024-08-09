@@ -14,12 +14,12 @@ OBJECTS = $(FILES:.c=.o)
 TARGET = main
 
 debug:
-	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDFLAGS) $(DBFLAGS) $(FILES) -o $(TARGET)
+	@make clean
+	$(CC) -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(DBFLAGS) $(FILES)
 
 release:
-	@make clean --no-print-directory
-	$(CC) $(CFLAGS) $(LDFLAGS) $(RLFLAGS) $(FILES) -o $(TARGET)
+	@make clean
+	$(CC) -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(RLFLAGS) $(FILES)
 	
 clean:
 	@rm -rf $(TARGET) *.exe $(OBJECTS)

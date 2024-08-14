@@ -10,7 +10,7 @@ enum direction {
     RIGHT
 };
 
-// Struct to store a bitmap object
+// struct to store a bitmap object
 struct bmap {
     size_t length; // length of the bitmap in bits
     uint8_t* map; // array storing the bit field

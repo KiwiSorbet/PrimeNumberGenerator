@@ -62,8 +62,6 @@ int main(int argc, char* argv[]) {
     bmap_free(prime_map);
 }
 
-// Marks the multiples of a prime number through the assoiated bitmap as
-// non-primes starting from a specific index.
 void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {
     size_t multiplier = start_index / prime_num;
     size_t multiple = prime_num * multiplier;

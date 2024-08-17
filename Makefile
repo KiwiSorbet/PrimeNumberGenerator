@@ -6,7 +6,7 @@ DB = lldb
 CFLAGS = -Wall -Wextra
 LDFLAGS =
 
-DBFLAGS = -O0 -g
+DBFLAGS = -Og -g
 RLFLAGS = -O3 -march=native -mtune=native -DNDEBUG
 
 FILES = $(wildcard *.c)
@@ -20,7 +20,7 @@ debug:
 release:
 	@make clean
 	$(CC) -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(RLFLAGS) $(FILES)
-	
+
 clean:
 	@rm -rf $(TARGET) *.exe $(OBJECTS)
 

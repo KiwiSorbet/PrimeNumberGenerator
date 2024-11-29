@@ -16,3 +16,5 @@ main
 
 # code editor files
 .vscode
+!vscode/tasks.json
+!vscode/launch.json

@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build debug",
+            "command": "make debug",
+            "type": "shell",
+            "presentation": {
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "group": "build"
+        },
+        {
+            "label": "Build release",
+            "command": "make release",
+            "type": "shell",
+            "presentation": {
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "group": "build"
+        },
+        {
+            "label": "Clean",
+            "command": "make clean",
+            "type": "shell",
+            "presentation": {
+                "revealProblems": "onProblem",
+                "close": true
+            },
+            "group": "none"
+        }
+    ]
+}

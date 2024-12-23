@@ -1,1 +1,1 @@
-A simple prime number generator based on the Sieve of Eratosthenes that I'm trying to make as fast as possible in C.
+A simple prime number generator based on the Sieve of Eratosthenes that I'm trying to make as fast as possible in C. Comes with a custom-made bitmap library.

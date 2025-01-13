@@ -16,6 +16,9 @@ int main(int argc, char* argv[]) {
     else
         list_size = DEFAULT_LIST_SIZE;
 
+
+
+
     // create bitmap
     struct bmap* prime_map = bmap_create(list_size, true);
     if (prime_map == NULL)

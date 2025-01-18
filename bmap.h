@@ -25,7 +25,8 @@ void bmap_print(const struct bmap* bmap);
 // Frees the associated bitmap from memory.
 void bmap_free(struct bmap* bmap);
 
-// Extends the length in bits of the bitmap in a bitmap struct.
+// Extends the length in bits of the bitmap in a bitmap struct and initializes
+// the new bits.
 void bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
 
 // Returns the value of a certain location in the associated bitmap.

@@ -61,19 +61,17 @@ void bmap_free(struct bmap* bmap) {
 void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
     // create the new larger bitmap
     size_t new_byte_length = bmap->length / 8 + (extend_length + 7) / 8;
-    uint8_t* new_map = malloc(new_byte_length);
-    if (new_map == NULL)
+    bmap->map = (uint8_t*) realloc(bmap->map, new_byte_length);
+    if (bmap->map == NULL)
         exit(-1);
 
-    // copy contents of the old bitmap into the new one
-    memset(new_map + bmap->length / 8, (init) ? 0b11111111 : 0b00000000,
-           new_byte_length - bmap->length / 8);
-    memcpy(new_map, bmap->map, bmap->length / 8);
-
-    // assign new bitmap to the bitmap struct
-    free(bmap->map);
-    bmap->map = new_map;
+    // update bitmap length
+    size_t old_length = bmap->length;
     bmap->length = new_byte_length * 8;
+
+    // set all newly allocated bits to chose
+    memset(bmap->map + old_length / 8, (init) ? 0b11111111 : 0b00000000,
+           new_byte_length - old_length / 8);
 }
 
 bool bmap_get(const struct bmap* bmap, size_t index) {

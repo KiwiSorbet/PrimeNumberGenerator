@@ -11,7 +11,7 @@ RLFLAGS = -O3 -march=native -mtune=native -DNDEBUG
 
 FILES = $(wildcard *.c)
 OBJECTS = $(FILES:.c=.o)
-TARGET = main
+TARGET = primegen
 
 debug:
 	@make clean

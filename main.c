@@ -8,6 +8,9 @@
 
 #define DEFAULT_LIST_SIZE 1000000 // how many prime numbers to find
 
+bool write_values = false;
+size_t list_size = DEFAULT_LIST_SIZE;
+
 int main(int argc, char* argv[]) {
     // get list size from command line arguments
     size_t list_size;

@@ -58,6 +58,25 @@ int main(int argc, char* argv[]) {
 
     // print last prime number in the list
     printf("%zuth prime number: %zu\n", list_index, prime_list[list_size - 1]);
+
+    // write all prime numbers to a file
+    if (write_values) {
+        // create file
+        FILE* file = fopen("primes.txt", "w");
+        if (file == NULL) {
+            perror("Error opening file");
+            exit(-1);
+        }
+
+        // write values to file
+        fprintf(file, "POSITION\t\tVALUE\n");
+        for (size_t i = 0; i < list_size; i++)
+            fprintf(file, "%zu\t\t\t\t%zu\n", i + 1, prime_list[i]);
+
+        fclose(file);
+    }
+
+    // deallocate memory before exiting
     free(prime_list);
     bmap_free(prime_map);
 }

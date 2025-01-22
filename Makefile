@@ -22,7 +22,7 @@ release:
 	$(CC) -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(RLFLAGS) $(FILES)
 
 clean:
-	@rm -rf $(TARGET) *.exe $(OBJECTS)
+	@rm -rf $(TARGET) *.exe $(OBJECTS) primes.txt
 
 run:
 	@make debug

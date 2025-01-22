@@ -12,7 +12,7 @@
 # binaries
 *.exe
 *.out
-main
+primegen
 
 # code editor files
 .vscode/*

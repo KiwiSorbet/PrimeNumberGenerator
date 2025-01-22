@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "bmap.h"
 #include "main.h"
@@ -12,12 +13,8 @@ bool write_values = false;
 size_t list_size = DEFAULT_LIST_SIZE;
 
 int main(int argc, char* argv[]) {
-    // get list size from command line arguments
-    size_t list_size;
-    if (argc == 2)
-        sscanf(argv[1], "%zu", &list_size);
-    else
-        list_size = DEFAULT_LIST_SIZE;
+    // parse command line arguments
+    parse_arguments(argc, argv);
 
     // create bitmap
     struct bmap* prime_map = bmap_create(list_size, true);
@@ -63,6 +60,48 @@ int main(int argc, char* argv[]) {
     printf("%zuth prime number: %zu\n", list_index, prime_list[list_size - 1]);
     free(prime_list);
     bmap_free(prime_map);
+}
+
+void parse_arguments(int argc, char* argv[]) {
+    // check if there are arguments
+    if (argc < 2)
+        return;
+
+    // parse individual arguments
+    for (size_t i = 1; i < (size_t) argc; i++) {
+        // check for -w and --write (writing prime numbers to a file)
+        if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--write") == 0) {
+            write_values = true;
+        }
+        // check for --num (number of prime numbers to be generated)
+        else if (strcmp(argv[i], "--num") == 0) {
+            // check for missing value after argument
+            if (i + 1 >= (size_t) argc) {
+                printf("Missing value after argument \"--num\"\n");
+                exit(-1);
+            }
+
+            // check that the value fed is a positive integer
+            bool value_is_valid = true;
+            for (size_t j = 0; j < strlen(argv[i + 1]); j++) {
+                if (argv[i + 1][j] < '0' || argv[i + 1][j] > '9') {
+                    printf("Invalid value for argument \"--num\". Value must "
+                           "be a positive integer\n");
+                    value_is_valid = false;
+                    exit(-1);
+                }
+            }
+
+            // edit the prime list size with the value fed
+            if (value_is_valid)
+                sscanf(argv[i + 1], "%zu", &list_size);
+            i++; // increment i to jump 2 tokens in the argument list
+        }
+        else {
+            printf("Unrecognized argument: \"%s\"\n", argv[i]);
+            exit(-1);
+        }
+    }
 }
 
 void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {

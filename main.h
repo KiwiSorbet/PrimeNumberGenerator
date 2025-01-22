@@ -5,7 +5,7 @@
 
 typedef uint64_t prime; // type for storing prime numbers
 
-// Parses command line arguments and edits global variables accordingly before
+// Parses and interprets command line arguments. Edits global variables accordingly before
 // prime number generation starts.
 void parse_arguments(int argc, char* argv[]);
 

@@ -29,7 +29,7 @@ void bmap_free(struct bmap* bmap);
 // the new bits.
 void bmap_extend(struct bmap* bmap, size_t extend_length, bool init);
 
-// Returns the value of a certain location in the associated bitmap.
+// Returns the value of a specific bit in the associated bitmap.
 bool bmap_get(const struct bmap* bmap, size_t index);
 
 // Finds the first occurence of a certain value in the bitmap from a starting

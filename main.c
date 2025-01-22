@@ -7,13 +7,13 @@
 #include "bmap.h"
 #include "main.h"
 
-#define DEFAULT_LIST_SIZE 1000000 // how many prime numbers to find
+#define DEFAULT_LIST_SIZE 1000000 // default size of prime number list
 
-bool write_values = false;
-size_t list_size = DEFAULT_LIST_SIZE;
+bool write_values = false; // whether to write the primes to a file or not
+size_t list_size = DEFAULT_LIST_SIZE; // size of prime number list
 
 int main(int argc, char* argv[]) {
-    // parse command line arguments
+    // parse and interpret command line arguments
     parse_arguments(argc, argv);
 
     // create bitmap
@@ -96,7 +96,7 @@ void parse_arguments(int argc, char* argv[]) {
         else if (strcmp(argv[i], "--num") == 0) {
             // check for missing value after argument
             if (i + 1 >= (size_t) argc) {
-                printf("Missing value after argument \"--num\"\n");
+                printf("Missing value after argument \"--num\".\n");
                 exit(-1);
             }
 
@@ -105,7 +105,7 @@ void parse_arguments(int argc, char* argv[]) {
             for (size_t j = 0; j < strlen(argv[i + 1]); j++) {
                 if (argv[i + 1][j] < '0' || argv[i + 1][j] > '9') {
                     printf("Invalid value for argument \"--num\". Value must "
-                           "be a positive integer\n");
+                           "be a positive integer.\n");
                     value_is_valid = false;
                     exit(-1);
                 }

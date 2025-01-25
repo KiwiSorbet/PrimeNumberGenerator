@@ -6,7 +6,7 @@ This is a basic prime number generator based on the Sieve of Eratosthenes that I
 - A C compiler (GCC or Clang)
 - GNU Make
 ### Build Steps
-- In the Makefile, edit change the value of `CC` to whichever compiler you want to use.
+- In the Makefile, change the value of `CC` to whichever compiler you want to use.
 - `make release`
 ## How to use
 `./primegen -- num [how many prime numbers to generate]` (if no value is input, the default is to generate the first 1 million prime numbers)

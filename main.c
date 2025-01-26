@@ -81,6 +81,16 @@ int main(int argc, char* argv[]) {
     bmap_free(prime_map);
 }
 
+void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {
+    size_t multiplier = start_index / prime_num;
+    size_t multiple = prime_num * multiplier;
+
+    while (multiple < bmap->length) {
+        bmap_set(bmap, multiple, false);
+        multiple += prime_num;
+    }
+}
+
 void parse_arguments(int argc, char* argv[]) {
     // check if there are arguments
     if (argc < 2)
@@ -123,12 +133,3 @@ void parse_arguments(int argc, char* argv[]) {
     }
 }
 
-void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {
-    size_t multiplier = start_index / prime_num;
-    size_t multiple = prime_num * multiplier;
-
-    while (multiple < bmap->length) {
-        bmap_set(bmap, multiple, false);
-        multiple += prime_num;
-    }
-}

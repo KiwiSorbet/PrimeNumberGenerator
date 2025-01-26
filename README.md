@@ -9,7 +9,7 @@ This is a basic prime number generator based on the Sieve of Eratosthenes that I
 - In the Makefile, change the value of `CC` to whichever compiler you want to use.
 - `make release`
 ## How to use
-`./primegen -- num [how many prime numbers to generate]` (if no value is input, the default is to generate the first 1 million prime numbers)
+`./primegen --num [how many prime numbers to generate]` (if no value is input, the default is to generate the first 1 million prime numbers)
 
 ### Additional Flags
-- `-w` or `--write`: will write all prime numbers generated to a `primes.txt` file.
+- `--write`: will write all prime numbers generated to a `primes.txt` file.

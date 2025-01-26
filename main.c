@@ -88,8 +88,8 @@ void parse_arguments(int argc, char* argv[]) {
 
     // parse individual arguments
     for (size_t i = 1; i < (size_t) argc; i++) {
-        // check for -w and --write (writing prime numbers to a file)
-        if (strcmp(argv[i], "-w") == 0 || strcmp(argv[i], "--write") == 0) {
+        // check for --write (writing prime numbers to a file)
+        if (strcmp(argv[i], "--write") == 0) {
             write_values = true;
         }
         // check for --num (number of prime numbers to be generated)

@@ -9,8 +9,8 @@ typedef uint64_t prime; // type for storing prime numbers
 // non-primes starting from a specific index.
 void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap);
 
-// Parses and interprets command line arguments. Edits global variables accordingly before
-// prime number generation starts.
+// Parses and interprets command line arguments. Edits global variables
+// accordingly before prime number generation starts.
 void parse_arguments(int argc, char* argv[]);
 
 #endif

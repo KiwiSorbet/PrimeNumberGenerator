@@ -17,7 +17,8 @@ int main(int argc, char* argv[]) {
     parse_arguments(argc, argv);
 
     // create bitmap
-    struct bmap* prime_map = bmap_create(list_size, true); // allocating chunks the size of the prime list pretty efficient
+    size_t bmap_increment = list_size / 2; // size of chunks of bitmap allocated
+    struct bmap* prime_map = bmap_create(bmap_increment, true);
     if (prime_map == NULL)
         return -1;
 
@@ -35,13 +36,14 @@ int main(int argc, char* argv[]) {
     // find prime numbers until list is filled
     for (; list_index < list_size; list_index++) {
         // find the next prime number
-        bmap_index = bmap_find_next(prime_map, ++bmap_index, true, RIGHT);
+        bmap_index++;
+        bmap_index = bmap_find_next(prime_map, bmap_index, true, RIGHT);
 
         // if end of bitmap reached, need to extend it
         if (bmap_index == prime_map->length) {
             // extend bitmap
             size_t old_length = prime_map->length; // save old length of bitmap
-            bmap_extend(prime_map, list_size, true);
+            bmap_extend(prime_map, bmap_increment, true);
 
             // update new bitmap entries with previous primes
             for (size_t i = 0; i < list_index; i++)

@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     parse_arguments(argc, argv);
 
     // create bitmap
-    struct bmap* prime_map = bmap_create(list_size, true);
+    struct bmap* prime_map = bmap_create(list_size, true); // allocating chunks the size of the prime list pretty efficient
     if (prime_map == NULL)
         return -1;
 

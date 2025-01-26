@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     parse_arguments(argc, argv);
 
     // create bitmap
-    size_t bmap_increment = list_size / 2; // size of chunks of bitmap allocated
+    size_t bmap_increment = list_size; // size of chunks of bitmap allocated
     struct bmap* prime_map = bmap_create(bmap_increment, true);
     if (prime_map == NULL)
         return -1;

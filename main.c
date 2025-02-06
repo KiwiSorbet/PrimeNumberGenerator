@@ -81,6 +81,7 @@ int main(int argc, char* argv[]) {
     // deallocate memory before exiting
     free(prime_list);
     bmap_free(prime_map);
+    return 0;
 }
 
 void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {

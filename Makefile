@@ -9,8 +9,7 @@ LDFLAGS =
 DBFLAGS = -Og -g
 RLFLAGS = -O3 -march=native -mtune=native -DNDEBUG
 
-FILES = $(wildcard *.c)
-OBJECTS = $(FILES:.c=.o)
+FILES = main.c bmap.c
 TARGET = primegen
 
 debug:
@@ -22,7 +21,7 @@ release:
 	$(CC) -o $(TARGET) $(CFLAGS) $(LDFLAGS) $(RLFLAGS) $(FILES)
 
 clean:
-	@rm -rf $(TARGET) *.exe $(OBJECTS) primes.txt
+	@rm -rf $(TARGET) *.exe primes.txt
 
 run:
 	@make debug

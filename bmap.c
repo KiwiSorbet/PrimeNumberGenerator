@@ -33,7 +33,7 @@ struct bmap* bmap_create(size_t length, bool init) {
     return bmap;
 }
 
-void bmap_print(const struct bmap* bmap) {
+void bmap_print(const struct bmap bmap[]) {
     size_t byte_length = (bmap->length + 7) / 8;
 
     printf("------------------------\n");
@@ -53,12 +53,12 @@ void bmap_print(const struct bmap* bmap) {
     return;
 }
 
-void bmap_free(struct bmap* bmap) {
+void bmap_free(struct bmap bmap[]) {
     free(bmap->map);
     free(bmap);
 }
 
-void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
+void bmap_extend(struct bmap bmap[], size_t extend_length, bool init) {
     // create the new larger bitmap
     size_t new_byte_length = bmap->length / 8 + (extend_length + 7) / 8;
     bmap->map = (uint8_t*) realloc(bmap->map, new_byte_length);
@@ -74,7 +74,7 @@ void bmap_extend(struct bmap* bmap, size_t extend_length, bool init) {
            new_byte_length - old_length / 8);
 }
 
-bool bmap_get(const struct bmap* bmap, size_t index) {
+bool bmap_get(const struct bmap bmap[], size_t index) {
     // index out of bounds always returns false
     if (index >= bmap->length)
         return false;
@@ -90,7 +90,7 @@ bool bmap_get(const struct bmap* bmap, size_t index) {
     return (binary_control == 0) ? false : true;
 }
 
-size_t bmap_find_next(const struct bmap* bmap, size_t index, bool value,
+size_t bmap_find_next(const struct bmap bmap[], size_t index, bool value,
                       enum direction dir) {
     size_t cursor = index;
 
@@ -110,7 +110,7 @@ size_t bmap_find_next(const struct bmap* bmap, size_t index, bool value,
     return cursor;
 }
 
-void bmap_set(struct bmap* bmap, size_t index, bool value) {
+void bmap_set(struct bmap bmap[], size_t index, bool value) {
     // index out of bounds
     if (index >= bmap->length)
         return;
@@ -131,7 +131,7 @@ void bmap_set(struct bmap* bmap, size_t index, bool value) {
     }
 }
 
-void bmap_set_mul(struct bmap* bmap, size_t index, size_t cnt, bool value) {
+void bmap_set_mul(struct bmap bmap[], size_t index, size_t cnt, bool value) {
     for (size_t i = index; i < index + cnt; i++)
         bmap_set(bmap, i, value);
 }

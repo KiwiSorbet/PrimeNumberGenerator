@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
             // update new bitmap entries with previous primes
             for (size_t i = 0; i < list_index; i++)
-                progagate_prime(prime_list[i], old_length, prime_map);
+                progagate_prime(prime_map, prime_list[i], old_length);
 
             // recalculate bitmap index of the next new prime
             bmap_index = bmap_find_next(prime_map, bmap_index, true, RIGHT);
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
 
         // update bitmap and prime list
         prime_list[list_index] = bmap_index;
-        progagate_prime(bmap_index, bmap_index, prime_map);
+        progagate_prime(prime_map, bmap_index, bmap_index);
     }
 
     // print last prime number in the list
@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 
-void progagate_prime(prime prime_num, size_t start_index, struct bmap* bmap) {
+void progagate_prime(struct bmap bmap[], prime prime_num, size_t start_index) {
     size_t multiplier = start_index / prime_num;
     size_t multiple = prime_num * multiplier;
 
@@ -135,4 +135,3 @@ void parse_arguments(int argc, char* argv[]) {
         }
     }
 }
-

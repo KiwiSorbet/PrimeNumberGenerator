@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-typedef uint64_t prime; // type for storing prime numbers
+typedef uint64_t prime; // Type for storing prime numbers
 
 // Marks the multiples of a prime number through the assoiated bitmap as
 // non-primes starting from a specific index.
